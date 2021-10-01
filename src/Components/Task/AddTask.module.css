@@ -14,6 +14,18 @@
 .container h2 {
     padding-top: 20px;
     color: white;
+    display: flex;
+    align-items: center;
+}
+.InputErrorMsg {
+    color: red;
+}
+.container h2 .backIcon {
+    cursor: pointer;
+    margin-right: 10px;
+    color: white;
+
+    margin-top: 6px;
 }
 .container input {
     width: 90%;
@@ -38,15 +50,21 @@ input:focus {
     flex-direction: column;
     padding: 0;
     height: 350px;
+    overflow-x: hidden;
     overflow-y: auto;
     text-align: left;
+}
+.NotificationMsg {
+    text-align: center;
+    font-size: 30px;
+    color: aliceblue;
 }
 
 .list h4 {
     margin: 5px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .container {
         width: 90%;
     }

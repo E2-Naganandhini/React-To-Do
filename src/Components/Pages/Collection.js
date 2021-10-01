@@ -3,8 +3,9 @@ import { useState } from "react";
 import AddCollection from "../Collection/addCollection";
 import React from "react";
 import AddTask from "../Task/AddTask";
-import Task from "./Task";
+import DisplayCollection from "../Collection/DisplayCollection";
 import { useLocation } from "react-router";
+
 const Collection = () => {
     const [addCollectionIsShown, setaddCollectionIsShown] = useState(false);
     const hideAddCollection = () => {
@@ -22,7 +23,7 @@ const Collection = () => {
                 <AddCollection onClose={hideAddCollection} />
             )}
             <NavigationBar onShowAddCollection={ShowAddCollection} />
-            {lastItem === "collection" ? <Task /> : <AddTask />}
+            {lastItem === "collection" ? <DisplayCollection /> : <AddTask />}
         </React.Fragment>
     );
 };

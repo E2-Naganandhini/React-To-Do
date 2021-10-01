@@ -53,7 +53,7 @@ function DisplayTask(props) {
                     </div>
                 </Modal>
             )}
-            <li className={listControlClasses}>
+            <div className={listControlClasses}>
                 {props.todo.completed === true ? (
                     <AiFillCheckCircle
                         className={classes.checkIcon}
@@ -69,14 +69,14 @@ function DisplayTask(props) {
                         }}
                     />
                 )}
-                {props.todo.task}
+                <span className={classes.listTodo}>{props.todo.task}</span>
                 <MdDelete
                     className={classes.deleteIcon}
                     onClick={() => {
                         setOpenDeleteModal(true);
                     }}
                 />
-            </li>
+            </div>
         </React.Fragment>
     );
 }

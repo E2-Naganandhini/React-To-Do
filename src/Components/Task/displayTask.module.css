@@ -10,11 +10,15 @@
     border-radius: 15px;
     height: 25px;
     cursor: pointer;
-
     text-align: left;
     align-content: center;
 }
-
+.listItem span {
+    width: 80%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 h4 {
     color: white;
     margin: 0 auto;
@@ -22,7 +26,7 @@ h4 {
 
 .line_through {
     text-decoration: line-through;
-    opacity: 0.5;
+    background-color: rgb(131, 131, 131);
 }
 .p {
     color: blanchedalmond;
@@ -53,7 +57,7 @@ h4 {
 .delModal {
     text-align: center;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .delButton {
         padding: 0.25rem 0.4rem;
     }

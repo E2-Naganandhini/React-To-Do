@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import database from "./firbase";
 import DisplayTask from "./displayTask";
-
+import { IoChevronBackOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 const AddTask = (props) => {
     const [value, setValue] = useState("");
     const [tasks, setTasks] = useState([]);
@@ -65,7 +66,12 @@ const AddTask = (props) => {
     return (
         <div className={classes.container}>
             <form onSubmit={submitHandler}>
-                <h2>{lastItem.toUpperCase()}</h2>
+                <h2>
+                    <NavLink to="/collection">
+                        <IoChevronBackOutline className={classes.backIcon} />
+                    </NavLink>
+                    {lastItem.toUpperCase()}
+                </h2>
 
                 <input
                     type="text"
@@ -77,9 +83,13 @@ const AddTask = (props) => {
                     }}
                 />
             </form>
-            {!inputValidate ? <p>Enter Task</p> : ""}
+            {!inputValidate ? (
+                <p className={classes.InputErrorMsg}>Enter Task</p>
+            ) : (
+                ""
+            )}
             <ul className={classes.list}>
-                <h4>InComplete - {IncompleteNum}</h4>
+                {IncompleteNum !== 0 && <h4>InComplete - {IncompleteNum}</h4>}
                 {!loading &&
                     tasks.map((task) =>
                         task.collection === lastItem &&
@@ -89,7 +99,7 @@ const AddTask = (props) => {
                             ""
                         )
                     )}
-                <h4>Completd - {completeNum}</h4>
+                {completeNum !== 0 && <h4>Completd - {completeNum}</h4>}
                 {!loading &&
                     tasks.map((task) =>
                         task.collection === lastItem &&
@@ -99,6 +109,9 @@ const AddTask = (props) => {
                             ""
                         )
                     )}
+                {completeNum === 0 && IncompleteNum === 0 && (
+                    <p className={classes.NotificationMsg}>No Task Found</p>
+                )}
             </ul>
         </div>
     );

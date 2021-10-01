@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import classes from "./Task.module.css";
+import classes from "./DisplayCollection.module.css";
 import { Link } from "react-router-dom";
 import database from "../Task/firbase";
 
-const Task = () => {
+const DisplayCollection = () => {
     const [tasks, setTask] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,6 @@ const Task = () => {
                 >
                     <Link to={`/collection/${task.collection}`}>
                         {task.collection}
-                        {console.log(task)}
                     </Link>
                 </li>
             ))}
@@ -38,4 +37,4 @@ const Task = () => {
     );
 };
 
-export default Task;
+export default DisplayCollection;

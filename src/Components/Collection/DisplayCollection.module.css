@@ -1,6 +1,6 @@
 .collection {
     width: 85%;
-    height: 450px;
+    height: 480px;
     margin: 0 auto;
     margin-top: 3%;
     display: flex;
@@ -34,7 +34,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 ::-webkit-scrollbar-thumb {
     background: rgb(168, 167, 167);
@@ -65,9 +65,10 @@
     background-color: #73ee8d;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .collection {
         width: 95%;
+        height: 85vh;
     }
     .collection li {
         flex: 0 0 70%;
