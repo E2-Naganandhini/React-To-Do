@@ -8,6 +8,7 @@ import { useLocation } from "react-router";
 
 const Collection = () => {
     const [addCollectionIsShown, setaddCollectionIsShown] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
     const hideAddCollection = () => {
         setaddCollectionIsShown(false);
     };
@@ -22,8 +23,17 @@ const Collection = () => {
             {addCollectionIsShown && (
                 <AddCollection onClose={hideAddCollection} />
             )}
-            <NavigationBar onShowAddCollection={ShowAddCollection} />
-            {lastItem === "collection" ? <DisplayCollection /> : <AddTask />}
+            <NavigationBar
+                onShowAddCollection={ShowAddCollection}
+                onChange={(event) => {
+                    setSearchTerm(event.target.value);
+                }}
+            />
+            {lastItem === "collection" ? (
+                <DisplayCollection searchTermChange={searchTerm} />
+            ) : (
+                <AddTask />
+            )}
         </React.Fragment>
     );
 };

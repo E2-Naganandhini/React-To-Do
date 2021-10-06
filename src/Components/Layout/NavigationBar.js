@@ -10,6 +10,7 @@ import { MdAddCircleOutline } from "react-icons/md";
 const NavigationBar = (props) => {
     const [sideBar, setsideBar] = useState(false);
     const [collection, setCollection] = useState([]);
+    const [search, setSearch] = useState(false);
     useEffect(() => {
         database.collection("collections").onSnapshot((snapshot) => {
             setCollection(snapshot.docs.map((doc) => doc.data().collection));
@@ -45,7 +46,21 @@ const NavigationBar = (props) => {
                         <nav className={classes.nav}>
                             <ul>
                                 <li>
-                                    <BiSearch className={classes.searchIcon} />
+                                    <BiSearch
+                                        className={classes.searchIcon}
+                                        onClick={() => {
+                                            setSearch(!search);
+                                        }}
+                                    />
+                                </li>
+                                <li>
+                                    {search && (
+                                        <input
+                                            placeholder="Search.."
+                                            type="text"
+                                            onChange={props.onChange}
+                                        />
+                                    )}
                                 </li>
                                 <li className={classes.collTitle}>
                                     <NavLink to="/collection">

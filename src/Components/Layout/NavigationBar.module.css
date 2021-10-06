@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-right: 1.5rem;
 }
 .title {
@@ -27,19 +28,32 @@
     font-weight: 2500;
     margin-left: 20px;
 }
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .nav ul {
     list-style: none;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-
     padding-left: 0;
 }
 
 .nav li {
     font-size: 1rem;
     color: white;
+}
+
+.nav input {
+    margin-right: 10px;
+    padding-left: 6px;
+    border: 1px solid rgb(83, 81, 81);
+    height: 23px;
+    background-color: rgb(37, 37, 37);
 }
 
 .nav a {
@@ -85,18 +99,19 @@
 }
 
 .nav_menu {
+    position: fixed;
     width: 250px;
     height: 100vh;
     background-color: rgb(22, 22, 22);
     display: flex;
     justify-content: center;
-    position: fixed;
+    z-index: 2;
+    left: 0;
     transition: 850ms;
 }
 
 .active {
     left: -100%;
-    transition: 350ms;
 }
 
 .nav_text {
@@ -161,6 +176,7 @@ span {
     color: white;
     font-size: 21px;
     margin: 0 10px;
+
     cursor: pointer;
     margin-top: 7px;
 }
@@ -188,22 +204,23 @@ span {
         margin-right: 18px;
     }
     .nav_menu {
-        display: none;
+        left: -100%;
     }
+
     .active {
         left: 0;
         transition: 350ms;
     }
-    .header {
+    .secondsidetitle .addCollIcon {
         display: none;
     }
 
     .miniAddCollIcon {
         display: block;
-        position: absolute;
+        position: fixed;
         width: 100px;
         bottom: 0px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         left: 45%;
     }
     .miniAddCollIcon .addCollIcon {

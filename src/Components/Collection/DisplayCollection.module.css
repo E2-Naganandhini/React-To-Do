@@ -1,6 +1,7 @@
 .collection {
     width: 85%;
     height: 480px;
+    position: relative;
     margin: 0 auto;
     margin-top: 3%;
     display: flex;
@@ -68,7 +69,7 @@
 @media only screen and (max-width: 700px) {
     .collection {
         width: 95%;
-        height: 85vh;
+        height: 80vh;
     }
     .collection li {
         flex: 0 0 70%;

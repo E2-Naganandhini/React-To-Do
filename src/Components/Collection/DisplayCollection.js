@@ -3,7 +3,7 @@ import classes from "./DisplayCollection.module.css";
 import { Link } from "react-router-dom";
 import database from "../Task/firbase";
 
-const DisplayCollection = () => {
+const DisplayCollection = (props) => {
     const [tasks, setTask] = useState([]);
 
     useEffect(() => {
@@ -22,17 +22,29 @@ const DisplayCollection = () => {
 
     return (
         <ul className={classes.collection}>
-            {tasks.map((task) => (
-                <li
-                    onClick={() => {
-                        console.log(task);
-                    }}
-                >
-                    <Link to={`/collection/${task.collection}`}>
-                        {task.collection}
-                    </Link>
-                </li>
-            ))}
+            {tasks
+                .filter((task) => {
+                    if (props.searchTermChange == "") {
+                        return task;
+                    } else if (
+                        task.collection
+                            .toLowerCase()
+                            .includes(props.searchTermChange.toLowerCase())
+                    ) {
+                        return task;
+                    }
+                })
+                .map((task) => (
+                    <li
+                        onClick={() => {
+                            console.log(task);
+                        }}
+                    >
+                        <Link to={`/collection/${task.collection}`}>
+                            {task.collection}
+                        </Link>
+                    </li>
+                ))}
         </ul>
     );
 };
